@@ -2,10 +2,12 @@ package com.may.seonhwa.domain.posts;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Getter
+@NoArgsConstructor //기본생성자 자동추가
 @Entity
 public class Posts {
 
