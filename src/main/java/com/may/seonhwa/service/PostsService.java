@@ -25,15 +25,13 @@ public class PostsService {
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto) {
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당게시물이 없습니다. id=" + id));
-     
-        
+
         //update시에 Repository를 호출하는부분이 없는이유는 JPA의 영속성 컨텍스트 때문
         //TODO 더티체킹
         posts.update(requestDto.getTitle(), requestDto.getContent());
         return id;
     }
 
-    @Transactional
     public PostsResponseDto findById(Long id) {
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당게시물이 없습니다. id=" + id));
 
