@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.9.RELEASE'
+        springBootVersion = '2.1.5.RELEASE'
     }
 
     repositories {
@@ -20,7 +20,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group 'com.may.seonhwa'
-version '1.0.4-SNAPSHOT-'+new Date().format("yyyyMMddHHmmss")
+version '1.0-SNAPSHOT-'
 sourceCompatibility = 1.8
 
 repositories {
@@ -34,12 +34,15 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('com.h2database:h2')
 
-    /*gradle 버전문제로인해 lombok 관련 추가 */
+    annotationProcessor("org.projectlombok:lombok")
+    compileOnly("org.projectlombok:lombok")
+
+    /*gradle 버전문제로인해 lombok 관련 추가
     annotationProcessor 'org.projectlombok:lombok'
     implementation 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.projectlombok:lombok'
-
+    */
 
     //compile('org.springframework.boot:spring-boot-starter-oauth2-client')
     //compile('org.springframework.session:spring-session-jdbc')
@@ -49,4 +52,3 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
     //testCompile("org.springframework.security:spring-security-test")
 }
-
