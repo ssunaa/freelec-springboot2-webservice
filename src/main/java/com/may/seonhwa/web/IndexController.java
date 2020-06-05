@@ -1,6 +1,7 @@
 package com.may.seonhwa.web;
 
 import com.may.seonhwa.service.PostsService;
+import com.may.seonhwa.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

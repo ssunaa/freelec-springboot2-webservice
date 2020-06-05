@@ -49,4 +49,12 @@ public class PostsService {
                 .map(PostsListResponseDto::new) //OR map(posts -> new PostsListResponseDto(posts)
                 .collect(Collectors.toList());
     }
+
+    @Transactional
+    public void delete(Long id) {
+        Posts entity = postsRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당게시물이 없습니다. id=" + id));
+
+        postsRepository.delete(entity);
+    }
 }
