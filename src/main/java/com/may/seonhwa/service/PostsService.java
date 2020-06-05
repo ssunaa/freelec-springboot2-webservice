@@ -2,13 +2,16 @@ package com.may.seonhwa.service;
 
 import com.may.seonhwa.domain.posts.Posts;
 import com.may.seonhwa.domain.posts.PostsRepository;
+import com.may.seonhwa.web.dto.PostsListResponseDto;
 import com.may.seonhwa.web.dto.PostsResponseDto;
 import com.may.seonhwa.web.dto.PostsSaveRequestDto;
 import com.may.seonhwa.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 //생성자로 Bean객체를 받도록 하면, @Autowired와 동일할 기능을 수행
 @RequiredArgsConstructor
@@ -40,4 +43,10 @@ public class PostsService {
         return new PostsResponseDto(entity);
     }
 
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new) //OR map(posts -> new PostsListResponseDto(posts)
+                .collect(Collectors.toList());
+    }
 }
