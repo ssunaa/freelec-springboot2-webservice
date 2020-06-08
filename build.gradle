@@ -34,6 +34,9 @@ dependencies {
     compile('com.h2database:h2')
     compile('org.springframework.boot:spring-boot-starter-mustache')
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+    compile('org.springframework.session:spring-session-jdbc')
+
+    //compile("org.mariadb.jdbc:mariadb-java-client")
 
     /*gradle 버전문제로인해 lombok 관련 추가*/
     annotationProcessor("org.projectlombok:lombok")
@@ -42,11 +45,7 @@ dependencies {
     /*WAS재기동없이 적용*/
     compile('org.springframework.boot:spring-boot-devtools')
 
-
-    //compile('org.springframework.session:spring-session-jdbc')
-    //compile("org.mariadb.jdbc:mariadb-java-client")
-
+    /*테스트코드*/
     testCompile('org.springframework.boot:spring-boot-starter-test')
     //testCompile("org.springframework.security:spring-security-test")
 }
-

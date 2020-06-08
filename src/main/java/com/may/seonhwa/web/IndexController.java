@@ -1,5 +1,6 @@
 package com.may.seonhwa.web;
 
+import com.may.seonhwa.config.auth.LoginUser;
 import com.may.seonhwa.config.auth.dto.SessionUser;
 import com.may.seonhwa.service.PostsService;
 import lombok.RequiredArgsConstructor;
@@ -24,9 +25,8 @@ public class IndexController {
      * @return
      */
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
         if (user!=null) {
             model.addAttribute("userName", user.getName());
         }

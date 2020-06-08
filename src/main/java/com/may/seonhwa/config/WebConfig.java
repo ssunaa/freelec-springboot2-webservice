@@ -1,5 +1,6 @@
-package com.may.seonhwa.config.auth;
+package com.may.seonhwa.config;
 
+import com.may.seonhwa.config.auth.LoginUserArgumentResolver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
