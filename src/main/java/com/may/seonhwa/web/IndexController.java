@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class IndexController {
 
-    private final PostsService postsService; //final 안해주면 오류나는데 원인 모름 ㅠ
+    private final PostsService postsService;
     private final HttpSession httpSession;
 
 
